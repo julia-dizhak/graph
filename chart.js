@@ -176,6 +176,12 @@ Chart.prototype.drawPoints = function() {
 		var _i = chartProfessional.points[i];
 		var x = this.pointXToPixesl(_i.x);
 		var y = this.pointYToPixesl(_i.y);
+		
+		var markX = x-21;
+		var markY = y-25;
+		this.el.parents('.container-wrap').append('<i class="mark" style="left:'+ markX +'px; top:'+ markY +'px"/>');
+		$('.container-wrap .mark').css('border-color',color);
+		
 		ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
 		ctx.fillStyle = '#fff';
 		ctx.fill();
@@ -184,7 +190,7 @@ Chart.prototype.drawPoints = function() {
 		ctx.stroke();
 		ctx.beginPath();
 	}
-
+    $('.container-wrap .mark').append('<span class="mark-arrow-border" />').append('<span class="mark-arrow" />');
 	
 	// ctx.beginPath();
 	// ctx.moveTo(point0.x+dx,this.height-y0-1);
@@ -195,8 +201,6 @@ Chart.prototype.drawPoints = function() {
 	// var y1 = ((this.height)*point1.percent)/100;
 	// ctx.arc(point1.x+dx, this.height-y1+dy, radius, 0, 2 * Math.PI, false);	
 	// ctx.stroke();
-	
-	//console.log(y1)
 	
 		  		
 	/*ctx.font = 'normal normal 13px sans-serif';
@@ -210,16 +214,14 @@ Chart.prototype.renderFromData = function() {
 	
 }
 
-
-
 chart = new Chart('#container', config);
 
 
 
 //drawChartProffesional - first
-function drawChartProffesional () {
+/*function drawChartProffesional () {
 	
-};
+};*/
 
 /*d3_rgbPrototype.brighter = function(k) {
   k = Math.pow(0.7, arguments.length ? k : 1);
