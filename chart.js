@@ -177,6 +177,8 @@ Chart.prototype.drawPoints = function() {
 		var x = this.pointXToPixesl(_i.x);
 		var y = this.pointYToPixesl(_i.y);
 		ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+		ctx.fillStyle = '#fff';
+		ctx.fill();
 		ctx.strokeStyle = color;
 		ctx.lineWidth = 1;	
 		ctx.stroke();
